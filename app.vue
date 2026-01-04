@@ -8,6 +8,8 @@ useHead({
 
 <template>
   <div class="app-container">
+    <SidebarAd position="left" ad-slot-id="coinzilla-left" />
+    <SidebarAd position="right" ad-slot-id="coinzilla-right" />
     <AppHeader />
     <NuxtPage />
     <AppFooter />

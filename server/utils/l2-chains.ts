@@ -23,6 +23,7 @@ export const L2_CHAINS: L2Chain[] = [
     website: 'https://ethereum.org',
     category: 'l1',
     isFullRollup: false,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_ethereum.jpg',
   },
   {
     id: 'arbitrum',

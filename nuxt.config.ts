@@ -48,6 +48,7 @@ export default defineNuxtConfig({
         },
         { property: 'og:site_name', content: 'L2Fees' },
         { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'coinzilla', content: '0a07da88e8853d8979015618cc9f70fb' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

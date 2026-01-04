@@ -1,11 +1,12 @@
-import { CryptoStatsSDK } from '@cryptostats/sdk'
+import { L2_CHAINS } from '../utils/l2-chains'
+import { getAllChainFees } from '../utils/fee-calculator'
+import type { FeeData } from '~/composables/useFeeData'
 
-let cachedData: any = null
+let cachedData: FeeData[] | null = null
 let cacheTime = 0
-const CACHE_TTL = 5 * 60 * 1000 // 5 minutes
+const CACHE_TTL = 2 * 60 * 1000 // 2 minutes
 
-export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig(event)
+export default defineEventHandler(async () => {
   const now = Date.now()
 
   // Return cached data if still valid
@@ -14,32 +15,31 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const sdk = new CryptoStatsSDK({
-      etherscanKey: config.etherscanKey,
-      mongoConnectionString: config.mongoConnectionString,
-      redisConnectionString: config.redisUrl,
-      executionTimeout: config.executionTimeout ? parseInt(config.executionTimeout as string) : 60,
+    // Fetch fees from all chains via RPC
+    const feesMap = await getAllChainFees(L2_CHAINS)
+
+    // Transform to FeeData format
+    const data: FeeData[] = L2_CHAINS.map((chain) => {
+      const fees = feesMap.get(chain.id)
+
+      return {
+        id: chain.id,
+        metadata: {
+          name: chain.name,
+          shortName: chain.shortName,
+          website: chain.website,
+          l2BeatSlug: chain.l2BeatSlug,
+          category: chain.category,
+        },
+        results: {
+          feeTransferEth: fees?.feeTransferEth,
+          feeTransferERC20: fees?.feeTransferERC20,
+          feeTransferToken: fees?.feeTransferERC20, // Alias
+          feeSwap: fees?.feeSwap,
+        },
+        offchainDA: !chain.isFullRollup,
+      }
     })
-
-    // Add RPC providers
-    sdk.ethers.addProvider('arbitrum-one', 'https://arb1.arbitrum.io/rpc')
-    sdk.ethers.addProvider('optimism', 'https://mainnet.optimism.io')
-
-    const collection = sdk.getCollection('l2-fees')
-    const l1Adapters = sdk.getCollection('l1-fees')
-
-    await collection.fetchAdapters()
-    await l1Adapters.fetchAdapters()
-
-    const ethAdapter = l1Adapters.getAdapter('ethereum')
-    if (ethAdapter) {
-      collection.addAdapter(ethAdapter)
-    }
-
-    const data = await collection.executeQueriesWithMetadata(
-      ['feeTransferEth', 'feeTransferERC20', 'feeTransferToken', 'feeSwap'],
-      { allowMissingQuery: true }
-    )
 
     // Update cache
     cachedData = data

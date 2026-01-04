@@ -12,8 +12,7 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@cryptostats/sdk": "^0.2.19",
-    "ethers": "^5.7.0",
+    "ethers": "^6.13.0",
     "nuxt": "^3.14.0",
     "vue": "^3.5.0"
   },

@@ -27,6 +27,7 @@ export default defineEventHandler(async () => {
         metadata: {
           name: chain.name,
           shortName: chain.shortName,
+          icon: chain.icon,
           website: chain.website,
           l2BeatSlug: chain.l2BeatSlug,
           category: chain.category,

@@ -36,6 +36,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'arbitrum',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_arbitrum.jpg',
   },
   {
     id: 'optimism',
@@ -48,6 +49,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'optimism',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_optimism.jpg',
   },
   {
     id: 'base',
@@ -59,6 +61,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'base',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_base.jpg',
   },
   {
     id: 'zksync-era',
@@ -71,6 +74,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'zksync-era',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_zksync-era.jpg',
   },
   {
     id: 'polygon-zkevm',
@@ -83,6 +87,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'polygonzkevm',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_polygon.jpg',
   },
   {
     id: 'linea',
@@ -94,6 +99,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'linea',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_linea.jpg',
   },
   {
     id: 'scroll',
@@ -105,6 +111,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'scroll',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_scroll.jpg',
   },
   {
     id: 'starknet',
@@ -116,6 +123,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'starknet',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_starknet.jpg',
   },
   {
     id: 'mantle',
@@ -127,6 +135,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'mantle',
     category: 'validium',
     isFullRollup: false, // Uses own DA
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_mantle.jpg',
   },
   {
     id: 'manta',
@@ -139,6 +148,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'mantapacific',
     category: 'validium',
     isFullRollup: false,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_manta.jpg',
   },
   {
     id: 'blast',
@@ -150,6 +160,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'blast',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_blast.jpg',
   },
   {
     id: 'mode',
@@ -161,6 +172,7 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'mode',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_mode.jpg',
   },
   {
     id: 'zora',
@@ -172,5 +184,6 @@ export const L2_CHAINS: L2Chain[] = [
     l2BeatSlug: 'zora',
     category: 'rollup',
     isFullRollup: true,
+    icon: 'https://icons.llamao.fi/icons/chains/rsz_zora.jpg',
   },
 ]
